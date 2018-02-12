@@ -3,4 +3,5 @@
 *.fastq
 *.zip
 *.gz
-*.bt2   
+*.bt2
+*.sam

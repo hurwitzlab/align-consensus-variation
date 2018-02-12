@@ -7,6 +7,26 @@ import argparse
 import os
 from plumbum import local
 
+
+if __name__ == "__main__":
+    parser = \
+    argparse.ArgumentParser(description="Script that builds a bowtie2 index")
+    
+    parser.add_argument("-f", "--fasta", action="store", \
+            help="A fasta file")
+    parser.add_argument("-n", "--name", action="store", \
+            help="Prefix to give bowtie2 index, DEFAULT = genome", \
+            default="genome")
+    parser.add_argument("-d", "--outdir", action="store", \
+            default="./", help="Output directory, DEFAULT = ./")
+    args = vars(parser.parse_args())
+    main()
+
+
+def main():
+    build(args['fasta'],args['name'],args['outdir'])
+
+
 def build(fasta,name,outdir):
     """
     Construct bowtie2 indices (.bt2 files)
@@ -24,20 +44,3 @@ def build(fasta,name,outdir):
     print(stdout)
 
 
-def main():
-    build(args['fasta'],args['name'],args['outdir'])
-
-
-if __name__ == "__main__":
-    parser = \
-    argparse.ArgumentParser(description="Script that builds a bowtie2 index")
-    
-    parser.add_argument("-f", "--fasta", action="store", \
-            help="A fasta file")
-    parser.add_argument("-n", "--name", action="store", \
-            help="Prefix to give bowtie2 index, DEFAULT = genome", \
-            default="genome")
-    parser.add_argument("-d", "--outdir", action="store", \
-            default="./", help="Output directory, DEFAULT = ./")
-    args = vars(parser.parse_args())
-    main()
