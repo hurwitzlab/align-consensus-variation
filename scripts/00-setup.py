@@ -9,6 +9,7 @@ And then install
 from subprocess import call
 import sys
 
+
 def setupPlumbum():
     try:
         from plumbum import local
@@ -24,6 +25,7 @@ def setupPlumbum():
                     sys.exit("Something went wrong")
         except OSError as e:
             print("Execution failed:", e, file=sys.stderr)
+
 
 def checkConda():
     try:
@@ -54,11 +56,13 @@ def checkConda():
         except OSError as e:
             print("Execution failed:", e, file=sys.stderr)
 
+
 def installTools():
     import conda.cli
     conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'bowtie2')
     conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'samtools')
     conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'bcftools')
+
 
 checkConda()
 setupPlumbum()
