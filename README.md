@@ -14,7 +14,7 @@ At this link https://jmilabs.exavault.com/share/view/1ymd-5kbeaurx you’ll see 
 
 # Example commands used:
 <From within ./scripts/ directory>
-* ./setup.py
-* ./bowtie_index.py -f ../data/GCF_000005845.2_ASM584v2_genomic.fna -d ../data/
-* ./align.py -f ../data/sample-1_S1_L001_R1_001.fastq -r ../data/sample-1_S1_L001_R2_001.fastq -i ../data/genome -s ../data/parent_alignments.sam
+> ./setup.py
+> ./bowtie_index.py -f ../data/GCF_000005845.2_ASM584v2_genomic.fna -d ../data/
+> ./align.py -f ../data/sample-1_S1_L001_R1_001.fastq -r ../data/sample-1_S1_L001_R2_001.fastq -i ../data/genome -s ../data/parent_alignments.sam
 
