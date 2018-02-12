@@ -7,8 +7,11 @@ Steps:
 * Create an ann.vcf file of the daughter alignment using the reference gff
     > 04-generate-vcf.py
 
-Source data is here:
+#Source data is here:
 https://jmilabs.exavault.com/share/view/1ymd-5kbeaurx
+
+#Assignment text:
+At this link https://jmilabs.exavault.com/share/view/1ymd-5kbeaurx you’ll see  GCF_000005845.2_ASM584v2_genomic.fna, GCF_000005845.2_ASM584v2_genomic.gff and 2 sets of fastq files. GCF_000005845.2_ASM584v2_genomic is the reference, sample-1 is the parent and sample-2 is the daughter.
 
 #Example commands used:
 <From within ./scripts/ directory>
