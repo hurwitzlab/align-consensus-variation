@@ -28,9 +28,9 @@ Bowtie2
 `version 2.3.0`
 
 samtools
-`samtools 1.7
+`version 1.7
 Using htslib 1.7`
 
 bcftools
-`bcftools 1.6
+`version 1.6
 Using htslib 1.6`
