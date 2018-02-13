@@ -18,3 +18,19 @@ At this link https://jmilabs.exavault.com/share/view/1ymd-5kbeaurx you’ll see 
 * `./bowtie_index.py -f ../data/GCF_000005845.2_ASM584v2_genomic.fna -d ../data/`
 * `./align.py -f ../data/sample-1_S1_L001_R1_001.fastq -r ../data/sample-1_S1_L001_R2_001.fastq -i ../data/genome -s ../data/parent_alignments.sam`
 
+# Programs and versions:
+Anaconda3
+`conda version : 4.4.9,
+conda-build version : 3.0.27,
+python version : 3.6.3.final.0`
+
+Bowtie2
+`version 2.3.0`
+
+samtools
+`samtools 1.7
+Using htslib 1.7`
+
+bcftools
+`bcftools 1.6
+Using htslib 1.6`
