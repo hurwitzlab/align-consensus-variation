@@ -2,12 +2,13 @@
 """ Docstring
 Script that takes an alignment and reference sequence and generates a consensus
 """
+import os
 import subprocess
 import argparse
 from plumbum import local
 
 
-def consens(alignments,reference,output):
+def consens(alignments,reference,output,calls):
     """
     Run samtools then bcftools then vcfutils.pl on a ref and alignment
     :return:
@@ -33,15 +34,17 @@ def consens(alignments,reference,output):
 
 #DEBUG
 #    print("Alignments are now {}".format(alignments))
-    
-    with open('calls.vcf.gz','w') as calls:
+    if (os.path.isfile(calls) is True): 
+        print("{:s} already exists, assuming its ok...".format(calls))
+    else:
         chain = samtools['mpileup','-uf',reference,alignments] \
-                | bcftools['call','-mv','-Oz','-o','calls']
+                | bcftools['call','-mv','-Oz','-o',calls]
         chain()
-        tabix(calls)
-        chain2 = ((cat[reference] | bcftools['consensus',calls]) > output)
-        stdout = chain2()
-        print(stdout)
+
+    tabix('-f',calls)
+    chain2 = ((bcftools['consensus','-f',reference,calls]) > output)
+    stdout = chain2()
+    print(stdout)
 
 
 def convert_to_bam(alignments):
@@ -79,6 +82,9 @@ if __name__ == "__main__":
             help="Reference fasta sequence")
     parser.add_argument("-o", "--output", action="store", \
             default="./consensus.fna", \
-            help="Output fastq file, DEFAULT = ./output.fq")
+            help="Output fastq file, DEFAULT = ./consensus.fna")
+    parser.add_argument("-c", "--calls", action="store", \
+            default="./calls.vcf.gz", \
+            help="Calls output file of bcftools, DEFAULT=./calls.vcf.gz")
     args = vars(parser.parse_args())
-    consens(args['alignments'],args['reference'],args['output'])
+    consens(args['alignments'],args['reference'],args['output'],args['calls'])
