@@ -2,5 +2,5 @@
 * bowtie_index.py
 * align.py
 * gen_consensus.py
-* align_to_con.py
+* fastq_to_fasta.py (for consensu), bowtie_index.py, and align.py again
 * gen_vcf.py
