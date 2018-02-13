@@ -26,7 +26,8 @@ def align(forward,reverse,index,sam_out):
 
 if __name__ == "__main__":
     parser = \
-    argparse.ArgumentParser(description="Script that builds a bowtie2 index")
+    argparse.ArgumentParser(description=\
+    "Script that aligns reads to a reference using bowtie2")
     
     parser.add_argument("-f", "--forward", action="store", \
             help="Forward reads, comma separated")
