@@ -62,7 +62,7 @@ def installTools():
     conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'bowtie2')
     conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'samtools')
     conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'bcftools')
-    conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'snpeff')
+    conda.cli.main('conda', 'install', '-c', 'bioconda', '-y', 'bedops')
 
 
 checkConda()
