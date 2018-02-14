@@ -1,0 +1,13 @@
+vim ../data/GCF_000005845.2_ASM584v2_genomic.gff
+commented out line 8 - "gene" of the whole genome otherwise the vcf was annotated with just that
+
+gff2bed < test.gff > test.bed
+bgzip test.bed
+tabix -p bed test.bed.gz
+bcftools annotate -a test.bed.gz -c CHROM,FROM,TO,GENE -h <(echo '##INFO=<ID=GENE,Number=1,Type=String,Description="Gene name">') ../data/daughter.vcf.gz > ann.vcf
+
+it's fairly inane annotation
+with just the "ID=" field from the .gff file
+
+could be better if i used ensembl's version of the ecoli genome
+because then could use snpeff which makes some nice visualizations too i think
