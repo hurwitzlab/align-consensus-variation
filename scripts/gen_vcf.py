@@ -32,10 +32,10 @@ def annotate(gff,calls,output,bed):
     with open('header.txt','w') as header:
         header.write('##INFO=<ID=GENE,Number=1,Type=String,Description="Gene name">')
     
-    chain = ( gff2bed < gff > bed )
+    chain = ( (gff2bed < gff) > bed )
     stdout = chain()
     print(stdout)
-    bgzip(bed)
+    bgzip('-f',bed)
     tabix('-p','bed',bed + '.gz')
     chain = ( (bcftools['annotate','-a',bed + '.gz',\
             '-c','CHROM,FROM,TO,GENE','-h','header.txt',\

@@ -10,3 +10,4 @@ calls
 *.tbi
 *.vcf
 *.bed
+header.txt
