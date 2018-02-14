@@ -8,3 +8,5 @@
 data/
 calls
 *.tbi
+*.vcf
+*.bed
