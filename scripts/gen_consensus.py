@@ -54,7 +54,7 @@ def convert_to_bam(alignments):
     with open(newname,'wb',0) as alignments_bam:
         chain = ((samtools['view','-S','-b',alignments]) > alignments_bam)
         chain()
-        return(alignments_bam)
+        return(alignments_bam.name)
 
 
 def check_sorted(alignments):
