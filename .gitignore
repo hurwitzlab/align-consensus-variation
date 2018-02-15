@@ -11,3 +11,4 @@ calls
 *.vcf
 *.bed
 header.txt
+ensemble/
