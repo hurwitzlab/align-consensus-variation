@@ -1,11 +1,8 @@
-*.fna
 *.gff
-*.fastq
 *.zip
 *.gz
 *.bt2
 *.sam
-data/
 calls
 *.tbi
 *.vcf
