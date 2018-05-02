@@ -16,7 +16,7 @@ You’ll see  GCF_000005845.2_ASM584v2_genomic.fna, GCF_000005845.2_ASM584v2_gen
 * `./setup.py`
 * `./bowtie_index.py -f ../data/GCF_000005845.2_ASM584v2_genomic.fna -d ../data/`
 * `./align.py -f ../data/sample-1_S1_L001_R1_001.fastq -r ../data/sample-1_S1_L001_R2_001.fastq -i ../data/genome -s ../data/parent_alignments.sam`
-* `./gen_consensus ./gen_consensus.py -a ../data/parent_alignments.sam -r ../data/GCF_000005845.2_ASM584v2_genomic.fna -o ../data/consensus.fna -c ../data/parents.vcf.gz`
+* `./gen_consensus.py ./gen_consensus.py -a ../data/parent_alignments.sam -r ../data/GCF_000005845.2_ASM584v2_genomic.fna -o ../data/consensus.fna -c ../data/parents.vcf.gz`
 * `./bowtie_index.py -f ../data/consensus.fna -n consensus -d ../data/`
 * `./align.py -f ../data/sample-2_S6_L001_R1_001.fastq -r ../data/sample-2_S6_L001_R2_001.fastq -i ../data/consensus -s ../data/daughter_alignments.sam`
 * `./gen_consensus.py -a ../data/daughter_alignments.sam -r ../data/consensus.fna -o /dev/null -c ../data/daughter.vcf.gz`

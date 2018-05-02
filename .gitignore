@@ -8,3 +8,6 @@ calls
 *.bed
 header.txt
 ensemble/
+*.fai
+consensus*
+parent*
